@@ -1,6 +1,12 @@
 Flask-Webpack changelog
 =======================
 
+Version 0.0.2
+-------------
+
+- Add flask_webpack to the package list in setup.py
+- Add zip_safe=False to comply with Flask's extension authoring rules
+
 Version 0.0.1
 -------------
 

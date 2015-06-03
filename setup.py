@@ -19,5 +19,7 @@ setup(name='Flask-Webpack',
       license='GPLv3',
       install_requires=['setuptools', 'Flask'],
       tests_require=['pytest'],
+      packages=['flask_webpack'],
       package_data={'Flask-Webpack': ['VERSION']},
+      zip_safe=False,
       data_files=[])
