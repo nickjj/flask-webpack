@@ -77,7 +77,7 @@ Quick start
     app = Flask(__name__)
     webpack.init_app(app)
 
-You can view a complete working example in the `test app <http://github.com/nickjj/flask-webpack/tests/test_app>`_.
+You can view a complete working example in the `test app <https://github.com/nickjj/flask-webpack/tree/master/flask_webpack/tests/test_app>`_.
 
 How does it work?
 -----------------
