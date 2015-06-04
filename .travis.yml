@@ -1,0 +1,13 @@
+---
+language: 'python'
+python: '2.7'
+
+before_install:
+  - 'pip install setuptools flake8 pytest'
+
+install:
+  - 'pip install --editable .'
+
+script:
+  - 'flake8 .'
+  - 'py.test flask_webpack/tests/test_app/tests'
