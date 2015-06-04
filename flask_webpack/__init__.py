@@ -19,10 +19,10 @@ class Webpack(object):
         :return: None
         """
 
-        # Setup a few sane defaults. The stats path allows us to write an
-        # informative error if the variable is missing or the path is invalid.
+        # Setup a few sane defaults.
         app.config.setdefault('WEBPACK_MANIFEST_PATH',
                               '/tmp/themostridiculousimpossiblepathtonotexist')
+        app.config.setdefault('WEBPACK_ASSETS_URL', None)
 
         self._set_asset_paths(app)
 
@@ -49,7 +49,11 @@ class Webpack(object):
             with app.open_resource(webpack_stats) as stats_json:
                 stats = json.load(stats_json)
 
-                self.assets_url = stats['publicPath']
+                if app.config['WEBPACK_ASSETS_URL']:
+                    self.assets_url = app.config['WEBPACK_ASSETS_URL']
+                else:
+                    self.assets_url = stats['publicPath']
+
                 self.assets = stats['assets']
         except IOError:
             raise RuntimeError(
