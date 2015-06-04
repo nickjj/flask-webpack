@@ -9,7 +9,7 @@
     "style-loader": "^0.12.3",
     "image-webpack-loader": "^1.4.0",
     "extract-text-webpack-plugin": "^0.8.1",
-    "manifest-revision-webpack-plugin": "^0.0.3",
+    "manifest-revision-webpack-plugin": "^0.0.5",
     "webpack": "^1.9.10",
     "webpack-dev-server": "^1.9.0"
   }
