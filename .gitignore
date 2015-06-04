@@ -8,7 +8,6 @@ __pycache__/
 # Distribution / packaging
 flask_webpack/tests/test_app/node_modules/
 bin/
-build/
 develop-eggs/
 dist/
 eggs/
