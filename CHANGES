@@ -1,6 +1,11 @@
 Flask-Webpack changelog
 =======================
 
+Version 0.0.3
+-------------
+
+- Add WEBPACK_ASSETS_URL setting
+
 Version 0.0.2
 -------------
 
