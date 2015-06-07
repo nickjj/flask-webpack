@@ -52,7 +52,7 @@ do not need to change any of your templates because the ``asset_url_for``
 tag knows how to look it up.
 
 Global template tags
-''''''''''''''''''''
+--------------------
 
 - **asset_url_for(asset_relative_path)** to resolve an asset name
 - **javascript_tag(\*asset_relative_paths)** to write out 1 or more script tags
@@ -60,6 +60,7 @@ Global template tags
 
 Both the javascript and stylesheet tags accept multiple arguments. If you give
 it more than argument it will create as many tags as needed.
+
 
 Installation
 ^^^^^^^^^^^^
@@ -110,6 +111,9 @@ options:
 Learn more
 ^^^^^^^^^^
 
+Webpack knowledge
+-----------------
+
 Most of what you'll need to learn is related to Webpack specifically but the
 example app in this repo is enough to get you started. Here's a few resources
 to help you get started with Webpack:
@@ -118,6 +122,46 @@ to help you get started with Webpack:
 - `Getting started <http://webpack.github.io/docs/tutorials/getting-started/>`_
 - `List of loaders <https://github.com/webpack/docs/wiki/list-of-loaders>`_
 - `Advanced setup with React <https://github.com/webpack/react-starter>`_
+
+Help! My assets do not work outside of development
+--------------------------------------------------
+
+I see, so basically the problem is you're using the ``url()`` function in your
+stylesheets and are referencing a relative path to an asset, such as:
+
+``src: url('../../fonts/CoolFont.eot')``
+
+The above works in development mode because that's where the file is 
+located but in production mode the asset is not there. The ``asset_url_for`` 
+template helper handles all of this for you on the server side but now you need
+some assistance  on the client side as well.
+
+You have a few options here depending on if you're using CSS, SASS or something
+else. If you're using straight CSS you will need to pre-prend all of your paths
+with a special identifier.
+
+If you were to re-write the example from above, it would now be:
+
+``src: url('~!file!../../fonts/CoolFont.eot')``
+
+That will automatically get expanded to a path that works in every environment.
+
+If you're using SASS you can create your own function to make things easier to
+work with on a day to day basis. Something like this should suffice:
+
+::
+
+    @function asset-url($path) {
+      @return url('~!file!' + $path);
+    }
+
+Now you can call it like this and everything will work:
+
+``src: asset-url('../../fonts/CoolFont.eot')``
+
+Feel free to make additional helper functions that let you abstract away the
+relative prefix such as ``font-url`` or ``image-url``. It really depends on how
+your assets are set up.
 
 Contributors
 ^^^^^^^^^^^^
