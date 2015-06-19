@@ -80,7 +80,8 @@ class Webpack(object):
 
         for arg in args:
             asset_path = self.asset_url_for('{0}.js'.format(arg))
-            tags.append('<script src="{0}"></script>'.format(asset_path))
+            if asset_path:
+                tags.append('<script src="{0}"></script>'.format(asset_path))
 
         return '\n'.join(tags)
 
@@ -95,8 +96,9 @@ class Webpack(object):
 
         for arg in args:
             asset_path = self.asset_url_for('{0}.css'.format(arg))
-            tags.append(
-                '<link rel="stylesheet" href="{0}">'.format(asset_path))
+            if asset_path:
+                tags.append(
+                    '<link rel="stylesheet" href="{0}">'.format(asset_path))
 
         return '\n'.join(tags)
 
