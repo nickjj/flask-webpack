@@ -1,10 +1,15 @@
 Flask-Webpack changelog
 =======================
 
-Version 0.0.4
+Version 0.0.5
 -------------
 
 - Fix issue where `None` could be emit by the javascript and script tags
+
+Version 0.0.4
+-------------
+
+- This was never a release, the `VERSION` file jumped from 0.0.3 to 0.0.5
 
 Version 0.0.3
 -------------
