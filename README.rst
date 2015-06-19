@@ -1,4 +1,4 @@
-|PyPI version| |PyPI downloads| |Build status|
+|PyPI version| |Build status|
 
 What is Flask-Webpack?
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -169,8 +169,6 @@ Contributors
 - Nick Janetakis <nick.janetakis@gmail.com>
 
 .. |PyPI version| image:: https://badge.fury.io/py/flask-webpack.png
-   :target: https://pypi.python.org/pypi/flask-webpack
-.. |PyPI downloads| image:: https://pypip.in/d/flask-webpack/badge.png
    :target: https://pypi.python.org/pypi/flask-webpack
 .. |Build status| image:: https://secure.travis-ci.org/nickjj/flask-webpack.png
    :target: https://travis-ci.org/nickjj/flask-webpack
