@@ -5,8 +5,8 @@ import sys
 try:
     from setuptools import setup
 except ImportError:
-    print('Flask-Webpack needs setuptools in order to build. ' + \
-          'Install it using your package manager ' + \
+    print('Flask-Webpack needs setuptools in order to build. ' +
+          'Install it using your package manager ' +
           '(usually python-setuptools) or via pip (pip install setuptools).')
     sys.exit(1)
 
