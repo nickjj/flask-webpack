@@ -1,6 +1,11 @@
 Flask-Webpack changelog
 =======================
 
+Version 0.0.6
+-------------
+
+- Fix legacy `print` statement in `setup.py`
+
 Version 0.0.5
 -------------
 
