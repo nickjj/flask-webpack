@@ -46,7 +46,7 @@ class Webpack(object):
         webpack_stats = app.config['WEBPACK_MANIFEST_PATH']
 
         try:
-            with app.open_resource(webpack_stats) as stats_json:
+            with app.open_resource(webpack_stats, 'r') as stats_json:
                 stats = json.load(stats_json)
 
                 if app.config['WEBPACK_ASSETS_URL']:
