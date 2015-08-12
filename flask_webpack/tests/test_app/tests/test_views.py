@@ -8,7 +8,8 @@ def test_index_page(client):
     js = 'app_js.8b7c0de88caa3f366b53.js'
     image = 'images/dog/no-idea.b9252d5fd8f39ce3523d303144338d7b.jpg'
 
-    assert asset_path in response.data
-    assert css in response.data
-    assert js in response.data
-    assert image in response.data
+    response_data = response.data.decode('utf-8')
+    assert asset_path in response_data
+    assert css in response_data
+    assert js in response_data
+    assert image in response_data
