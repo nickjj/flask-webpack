@@ -1,6 +1,12 @@
 Flask-Webpack changelog
 =======================
 
+Version 0.0.7
+-------------
+
+- Add better support for Python 3.x
+
+
 Version 0.0.6
 -------------
 
