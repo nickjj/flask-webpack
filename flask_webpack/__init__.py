@@ -31,9 +31,18 @@ class Webpack(object):
         if app.config.get('DEBUG', False):
             app.before_request(self._refresh_webpack_stats)
 
-        app.add_template_global(self.javascript_tag)
-        app.add_template_global(self.stylesheet_tag)
-        app.add_template_global(self.asset_url_for)
+        if hasattr(app, 'add_template_global'):
+            app.add_template_global(self.javascript_tag)
+            app.add_template_global(self.stylesheet_tag)
+            app.add_template_global(self.asset_url_for)
+        else:
+            # Flask < 0.10
+            ctx = {
+                'javascript_tag': self.javascript_tag,
+                'stylesheet_tag': self.stylesheet_tag,
+                'asset_url_for': self.asset_url_for
+            }
+            app.context_processor(lambda: ctx)
 
     def _set_asset_paths(self, app):
         """
@@ -73,7 +82,7 @@ class Webpack(object):
         """
         Convenience tag to output 1 or more javascript tags.
 
-        :param *args: 1 or more javascript file names
+        :param args: 1 or more javascript file names
         :return: Script tag(s) containing the asset
         """
         tags = []
@@ -89,7 +98,7 @@ class Webpack(object):
         """
         Convenience tag to output 1 or more stylesheet tags.
 
-        :param *args: 1 or more stylesheet file names
+        :param args: 1 or more stylesheet file names
         :return: Link tag(s) containing the asset
         """
         tags = []
@@ -114,8 +123,7 @@ class Webpack(object):
         if '//' in asset:
             return asset
 
-        for key in self.assets:
-            if key == asset:
-                return '{0}{1}'.format(self.assets_url, self.assets[key])
+        if asset not in self.assets:
+            return None
 
-        return None
+        return '{0}{1}'.format(self.assets_url, self.assets[asset])
