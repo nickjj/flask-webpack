@@ -66,8 +66,8 @@ class Webpack(object):
                 self.assets = stats['assets']
         except IOError:
             raise RuntimeError(
-                    "Flask-Webpack requires 'WEBPACK_MANIFEST_PATH' to be set and "
-                    "it must point to a valid json file.")
+                "Flask-Webpack requires 'WEBPACK_MANIFEST_PATH' to be set and "
+                "it must point to a valid json file.")
 
     def _refresh_webpack_stats(self):
         """
@@ -107,7 +107,7 @@ class Webpack(object):
             asset_path = self.asset_url_for('{0}.css'.format(arg))
             if asset_path:
                 tags.append(
-                        '<link rel="stylesheet" href="{0}">'.format(asset_path))
+                    '<link rel="stylesheet" href="{0}">'.format(asset_path))
 
         return '\n'.join(tags)
 
