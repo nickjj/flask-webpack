@@ -1,6 +1,11 @@
 Flask-Webpack changelog
 =======================
 
+Version 0.1.0
+-------------
+
+- Add support for old (< 0.10) versions of Flask
+
 Version 0.0.7
 -------------
 
