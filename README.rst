@@ -82,7 +82,7 @@ Quick start
 
 You can view a complete working example in the `test app <https://github.com/nickjj/flask-webpack/tree/master/flask_webpack/tests/test_app>`_.
 
-There's also a `blog post and short video <http://blog.nickjanetakis.com/post/120653461133/manage-your-assets-with-flask-webpack>`_ explaining how to use this extension.
+There's also a `blog post and short video <https://nickjanetakis.com/blog/manage-your-assets-with-flask-webpack>`_ explaining how to use this extension.
 
 How does it work?
 -----------------
