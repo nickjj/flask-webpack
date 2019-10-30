@@ -1,3 +1,27 @@
+Hey! This repo is no longer supported!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flask-Webpack has been deprecated in favor of: https://github.com/nickjj/flask-static-digest
+
+The new Flask-Static-Digest extension is easier to use, easier to configure,
+works with any (or no) asset build tool and is completely stand alone.
+
+Instead of depending on Webpack to handle md5 tagging assets and creating a
+manifest, Flask-Static-Digest does all of that and now it even gzips your
+files too.
+
+This makes it a general purpose extension that you can use to make your static
+files production ready.
+
+This will be the final commit to this project. Farewell Flask-Webpack, you were
+a good friend!
+
+----
+
+----
+
+----
+
 |PyPI version| |Build status|
 
 What is Flask-Webpack?
@@ -131,8 +155,8 @@ stylesheets and are referencing a relative path to an asset, such as:
 
 ``src: url('../../fonts/CoolFont.eot')``
 
-The above works in development mode because that's where the file is 
-located but in production mode the asset is not there. The ``asset_url_for`` 
+The above works in development mode because that's where the file is
+located but in production mode the asset is not there. The ``asset_url_for``
 template helper handles all of this for you on the server side but now you need
 some assistance  on the client side as well.
 
